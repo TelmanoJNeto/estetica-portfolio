@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { site, whatsappLink } from '../config/site';
 import { contact, finalCta } from '../data/content';
 import { Logo } from './Header';
@@ -138,9 +139,35 @@ export function Footer() {
   );
 }
 
+/** Botão flutuante (mobile): aparece depois que os botões do hero saem da tela. */
 export function FloatingWhatsApp() {
+  const [visible, setVisible] = useState(false);
+
+  useEffect(() => {
+    const hero = document.querySelector('.hero');
+    const actions = document.querySelector('.hero__actions');
+    if (!hero || !actions || !('IntersectionObserver' in window)) {
+      setVisible(true);
+      return;
+    }
+    // Observa o hero inteiro (dispara também em saltos de âncora) e decide pela posição dos botões.
+    const io = new IntersectionObserver(() => setVisible(actions.getBoundingClientRect().bottom < 0), {
+      threshold: [0, 0.2, 0.4, 0.6, 0.8, 1],
+    });
+    io.observe(hero);
+    return () => io.disconnect();
+  }, []);
+
   return (
-    <a className="fab" href={whatsappLink()} target="_blank" rel="noopener noreferrer" aria-label="Agendar avaliação pelo WhatsApp">
+    <a
+      className={`fab${visible ? ' fab--visivel' : ''}`}
+      href={whatsappLink()}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="Agendar avaliação pelo WhatsApp"
+      tabIndex={visible ? 0 : -1}
+      aria-hidden={!visible}
+    >
       <Icon name="chat" size={28} />
     </a>
   );

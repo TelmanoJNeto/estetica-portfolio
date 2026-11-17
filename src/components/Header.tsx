@@ -36,7 +36,7 @@ export function Header() {
         toggleRef.current?.focus();
       }
     };
-    const onResize = () => window.innerWidth >= 1024 && setOpen(false);
+    const onResize = () => window.innerWidth >= 1200 && setOpen(false);
     window.addEventListener('keydown', onKey);
     window.addEventListener('resize', onResize);
     return () => {
