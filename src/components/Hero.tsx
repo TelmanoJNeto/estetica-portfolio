@@ -12,8 +12,9 @@ function Seal({ text }: { text: string }) {
           <path id="seal-circle" d="M100,100 m-74,0 a74,74 0 1,1 148,0 a74,74 0 1,1 -148,0" />
         </defs>
         <text>
-          <textPath href="#seal-circle" textLength="462">
-            {text.repeat(2)}
+          <textPath href="#seal-circle" textLength="464" lengthAdjust="spacing">
+            {/* espaço final como NBSP: o SVG colapsa espaços no fim do texto */}
+            {`${text.trimEnd()}\u00A0`}
           </textPath>
         </text>
       </svg>

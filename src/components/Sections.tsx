@@ -11,7 +11,7 @@ export function Trust() {
           <li key={item.title} className="trust__item" data-reveal>
             <Icon name={item.icon} size={30} className="trust__icon" />
             <div>
-              <h2 className="trust__title">{item.title}</h2>
+              <p className="trust__title">{item.title}</p>
               <p className="trust__text">{item.text}</p>
             </div>
           </li>

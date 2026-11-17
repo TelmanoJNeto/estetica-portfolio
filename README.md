@@ -115,6 +115,9 @@ O peso total caiu de cerca de 31 MB em PNG para 1,4 MB em WebP (duas larguras po
   - Com `prefers-reduced-motion`, o selo para de girar e as transições são desligadas.
 - **Acordeão:** a primeira pergunta do FAQ vem aberta. O acordeão usa botões nativos com `aria-expanded`/`aria-controls`, e o conteúdo fechado fica fora da leitura e da navegação por Tab.
 
+- **Título da equipe:** troquei "Quem cuida de você" por "Quem cuida da sua pele". O circunflexo do Cormorant Garamond é alto por desenho e, em títulos grandes, parece solto da letra. Ao reaproveitar o projeto, evite ê, â e ô em títulos grandes de serifa, ou confira como ficam.
+- **Design system:** está documentado em `DESIGN.md`, com tokens, regras e componentes, e no arquivo auxiliar `.impeccable/design.json`. Os nomes das regras e a "North Star" foram inferidos da direção de arte. Revise se quiser outra redação.
+
 ## Verificação feita
 
 - `npm run build` passou sem erros nem avisos.
@@ -124,3 +127,7 @@ O peso total caiu de cerca de 31 MB em PNG para 1,4 MB em WebP (duas larguras po
   - todos os links e botões interativos têm pelo menos 44px.
 - O menu mobile foi testado pelo teclado: o foco vai para o primeiro link, o Esc fecha e devolve o foco ao botão.
 - O detector de padrões de design (Impeccable) não encontrou nada.
+- Uma revisão final de design pediu 3 correções, todas aplicadas:
+  - o acento no título da equipe;
+  - o texto comprimido do selo, que tinha uma linha atravessando;
+  - o contraste da unidade nos números da seção "A clínica".

@@ -157,7 +157,7 @@ export const structure = {
 };
 
 export const team = {
-  title: 'Quem cuida de você',
+  title: 'Quem cuida da sua pele',
   text: 'Uma equipe pequena de propósito. Você é atendida pelas mesmas pessoas do início ao fim.',
   members: [
     {
